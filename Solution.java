@@ -1,7 +1,13 @@
+import  java.util.*;
 
 public class Solution{
     public static void main(String[] args) {
-        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Resort[] res = new Resort[n];
+        for(int i=0;i<n;i++){
+
+        }
     }
 }
 class Resort{
@@ -11,6 +17,14 @@ class Resort{
     private String category;
     private double price;
     private double rating;
+
+    public Resort(int resortId,String resortName, String category, double price, double rating){
+        this.resortId=resortId;
+        this.resortName=resortName;
+        this.category=category;
+        this.price=price;
+        this.rating=rating;
+    }
 
     public void setResortId(int resortId){
         this.resortId = resortId;
