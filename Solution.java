@@ -1,14 +1,49 @@
+package Resort;
 import  java.util.*;
 
 public class Solution{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number of resorts");
         int n = sc.nextInt();
         Resort[] res = new Resort[n];
+        System.out.println("Enter all details");
         for(int i=0;i<n;i++){
-
+            int id = sc.nextInt();
+            sc.nextLine();
+            String name = sc.nextLine();
+            String category = sc.nextLine();
+            double price = sc.nextDouble();
+            double rating = sc.nextDouble();
+            sc.nextLine();
+            res[i]= new Resort(id,name,category,price,rating);
         }
+        // for(Resort i : res){
+        //     System.out.println(i.getResortId());
+        //     System.out.println(i.getResortName());
+        //     System.out.println(i.getCategory());
+        //     System.out.println(i.getPrice());
+        //     System.out.println(i.getRating());
+        // }
+        System.out.print("Enter Category for which you want to calculate average whoese rating is greater than 4: ");
+        String type = sc.nextLine();
+        System.out.println(avgPriceByCategory(res, type));
+        sc.close();
     }
+    public static double avgPriceByCategory(Resort[] res, String type){
+        double avg=0;
+        double count=0;
+        double sum=0;
+        for(Resort i: res){
+            if(i.getCategory().equalsIgnoreCase(type) && i.getRating()>4){
+                sum+=i.getPrice();
+                count++;
+            }
+        }
+        if(count>0)
+            avg = sum/count;
+        return avg;
+        }
 }
 class Resort{
 
